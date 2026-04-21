@@ -1,0 +1,1 @@
+{"name":"Forgettie","short_name":"Forgettie","description":"Offline tracker for subscriptions, insurance, and yearly payments you forget about.","start_url":"/","display":"standalone","background_color":"#f7f7f8","theme_color":"#4f46e5","lang":"en","scope":"/","orientation":"portrait","icons":[{"src":"favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}

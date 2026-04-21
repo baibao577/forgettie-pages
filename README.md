@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="forgettie_teaser.jpg" alt="Forgettie — offline tracker for recurring payments" />
+</p>
+
 # Forgettie
 
 **See what your subscriptions really cost you — and get ahead of every renewal.**

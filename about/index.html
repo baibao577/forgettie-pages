@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f7f7f8" media="(prefers-color-scheme: light)" />
+
+    <title>Forgettie — it's never just $9.99. See what subscriptions really cost you.</title>
+    <meta
+      name="description"
+      content="See what your subscriptions really cost you in a year — and the yearly bills that sneak up on you. Forgettie keeps the whole picture on one page."
+    />
+    <link rel="canonical" href="https://forgettie.dumbnote.app/about/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://forgettie.dumbnote.app/about/" />
+    <meta property="og:title" content="Forgettie — it's never just $9.99." />
+    <meta
+      property="og:description"
+      content="See what your subscriptions really cost you in a year — and the yearly bills that sneak up on you."
+    />
+    <meta property="og:image" content="https://forgettie.dumbnote.app/forgettie_teaser.jpg" />
+    <meta property="og:site_name" content="Forgettie" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Forgettie — it's never just $9.99." />
+    <meta
+      name="twitter:description"
+      content="See what your subscriptions really cost you in a year — and the yearly bills that sneak up on you."
+    />
+    <meta name="twitter:image" content="https://forgettie.dumbnote.app/forgettie_teaser.jpg" />
+
+    <link rel="stylesheet" href="styles/about.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Forgettie",
+        "description": "Offline, local-first tracker for recurring payments. See what subscriptions really cost you and get ahead of every renewal.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://forgettie.dumbnote.app",
+        "image": "https://forgettie.dumbnote.app/forgettie_teaser.jpg",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "dumbnote",
+          "url": "https://dumbnote.app"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <a class="brand" href="/" aria-label="Forgettie home">
+          <img src="/favicon.svg" alt="" width="22" height="22" />
+          <span>Forgettie</span>
+        </a>
+        <button
+          type="button"
+          class="theme-toggle"
+          data-theme-toggle
+          aria-label="Toggle dark mode"
+          title="Toggle dark mode"
+        >
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+        </button>
+      </header>
+
+      <main>
+        <section class="beat-hero" data-hero aria-labelledby="hero-heading">
+          <div class="hero-text">
+            <p class="eyebrow">The maths of $9.99</p>
+            <h1 id="hero-heading" class="h1">It's never just $9.99</h1>
+            <p class="subhead">See what your subscriptions really cost you in a year.</p>
+          </div>
+
+          <div class="hero-card" role="img" aria-label="Animated yearly total of a sample subscription list">
+            <button type="button" class="replay" data-replay aria-label="Replay the animation" title="Replay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 12a9 9 0 1 0 3-6.7"/>
+                <path d="M3 4v5h5"/>
+              </svg>
+            </button>
+            <p class="hero-eyebrow">Your yearly total</p>
+            <p class="hero-value" data-total aria-live="polite">$0.00</p>
+            <div class="progress-track" aria-hidden="true">
+              <span class="progress-fill" data-progress></span>
+            </div>
+            <div class="hero-foot">
+              <span>That's about</span>
+              <span class="monthly-avg" data-monthly>$0.00</span>
+              <span>a month</span>
+            </div>
+          </div>
+
+          <div class="rows" aria-hidden="true">
+            <div class="row" data-row data-yearly="191.88">
+              <span class="row-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3h3l6 18h-3L6 3zm6 0h3v18h-3V3zm6 0h3v18h-3V3z"/></svg>
+              </span>
+              <div class="row-main">
+                <span class="row-title">Netflix <span class="badge">monthly</span></span>
+                <span class="row-meta">Streaming</span>
+              </div>
+              <span class="row-price">
+                <span class="row-amount">$15.99</span>
+                <span class="row-cycle">/mo</span>
+              </span>
+            </div>
+
+            <div class="row" data-row data-yearly="131.88">
+              <span class="row-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5-2 4-2 4 2 4 2M8 10s1.5-2 4-2 4 2 4 2" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+              </span>
+              <div class="row-main">
+                <span class="row-title">Spotify <span class="badge">monthly</span></span>
+                <span class="row-meta">Streaming</span>
+              </div>
+              <span class="row-price">
+                <span class="row-amount">$10.99</span>
+                <span class="row-cycle">/mo</span>
+              </span>
+            </div>
+
+            <div class="row" data-row data-yearly="35.88">
+              <span class="row-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19a5 5 0 0 0 0-10 7 7 0 0 0-13.5 2A4 4 0 0 0 5 19h12.5z"/></svg>
+              </span>
+              <div class="row-main">
+                <span class="row-title">iCloud+ <span class="badge">monthly</span></span>
+                <span class="row-meta">Cloud storage</span>
+              </div>
+              <span class="row-price">
+                <span class="row-amount">$2.99</span>
+                <span class="row-cycle">/mo</span>
+              </span>
+            </div>
+
+            <div class="row" data-row data-yearly="143.88">
+              <span class="row-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 4 6l8 4 8-4-8-4zm0 10-8-4v8l8 4 8-4V8l-8 4z"/></svg>
+              </span>
+              <div class="row-main">
+                <span class="row-title">Dropbox <span class="badge">monthly</span></span>
+                <span class="row-meta">Cloud storage</span>
+              </div>
+              <span class="row-price">
+                <span class="row-amount">$11.99</span>
+                <span class="row-cycle">/mo</span>
+              </span>
+            </div>
+
+            <div class="row yearly" data-row data-yearly="12">
+              <span class="row-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+              </span>
+              <div class="row-main">
+                <span class="row-title">Domain name <span class="badge">yearly</span></span>
+                <span class="row-meta">Renews every 12 months</span>
+              </div>
+              <span class="row-price">
+                <span class="row-amount">$12.00</span>
+                <span class="row-cycle">/yr</span>
+              </span>
+            </div>
+
+            <div class="row" data-row data-yearly="251.88">
+              <span class="row-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h18v4H3zM3 9h11v12H3zm13 0h5v12h-5z"/></svg>
+              </span>
+              <div class="row-main">
+                <span class="row-title">Adobe Creative Cloud <span class="badge">monthly</span></span>
+                <span class="row-meta">Software</span>
+              </div>
+              <span class="row-price">
+                <span class="row-amount">$20.99</span>
+                <span class="row-cycle">/mo</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="letter">
+            <p>
+              Subscriptions are designed to feel small. $9.99 sounds like a coffee. Twelve of them sound like rent. Put them all on one page and the maths stops lying to you.
+            </p>
+          </div>
+
+          <a class="cta" href="https://forgettie.dumbnote.app" aria-label="Open the Forgettie app">
+            <span>Open the app</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </section>
+
+        <section class="beat-saving" aria-labelledby="saving-title">
+          <div class="saving-panel" data-saving-panel>
+            <div class="saving-head">
+              <p class="saving-eyebrow">Now the good news</p>
+              <h2 id="saving-title" class="saving-title">Small things. Big number.</h2>
+              <p class="saving-lead">Seeing the list is half the work. Cancelling one is the rest.</p>
+              <p class="saving-copy">
+                Forgettie keeps a running tally of what you saved &mdash; so every cancel makes your big number smaller.
+              </p>
+            </div>
+
+            <div class="saving-demo" aria-hidden="true">
+              <div class="saving-demo-row">
+                <span class="saving-demo-name">
+                  <span class="saving-demo-strike">Adobe Creative Cloud</span>
+                </span>
+                <span class="saving-demo-price">
+                  <span class="saving-demo-strike">$20.99 / mo</span>
+                </span>
+                <span class="saving-demo-pill">Saved</span>
+              </div>
+              <div class="saving-demo-total">
+                <span class="saving-demo-total-label">Back in your pocket</span>
+                <span class="saving-demo-total-value" data-saving-amount data-value="251.88">+ $0.00</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="beat-year" aria-labelledby="year-heading">
+          <div class="section-head">
+            <p class="eyebrow">Once-a-year bills</p>
+            <h2 id="year-heading" class="h2">The yearly ones sneak up on you.</h2>
+            <p class="section-lead">Know what's coming, so you can set the money aside.</p>
+            <p class="subhead">
+              It's March and the car insurance renewal lands — bigger than a month's rent. In April, the annual tax. In July, health. None of them feel like subscriptions, but they hit like one, once a year.
+            </p>
+          </div>
+
+          <div class="year-card" data-year-card>
+            <div class="year-strip" aria-hidden="true">
+              <div class="year-month"><span class="year-label">Jan</span><span class="year-dot"></span></div>
+              <div class="year-month"><span class="year-label">Feb</span><span class="year-dot"></span></div>
+              <div class="year-month has-bill"><span class="year-label">Mar</span><span class="year-dot"></span></div>
+              <div class="year-month has-bill"><span class="year-label">Apr</span><span class="year-dot"></span></div>
+              <div class="year-month"><span class="year-label">May</span><span class="year-dot"></span></div>
+              <div class="year-month"><span class="year-label">Jun</span><span class="year-dot"></span></div>
+              <div class="year-month has-bill"><span class="year-label">Jul</span><span class="year-dot"></span></div>
+              <div class="year-month"><span class="year-label">Aug</span><span class="year-dot"></span></div>
+              <div class="year-month"><span class="year-label">Sep</span><span class="year-dot"></span></div>
+              <div class="year-month"><span class="year-label">Oct</span><span class="year-dot"></span></div>
+              <div class="year-month has-bill"><span class="year-label">Nov</span><span class="year-dot"></span></div>
+              <div class="year-month"><span class="year-label">Dec</span><span class="year-dot"></span></div>
+            </div>
+
+            <ul class="year-bills" role="list">
+              <li class="year-bill">
+                <span class="year-bill-month">Mar</span>
+                <span class="year-bill-name">Car insurance</span>
+                <span class="year-bill-amount">$780</span>
+              </li>
+              <li class="year-bill">
+                <span class="year-bill-month">Apr</span>
+                <span class="year-bill-name">Annual tax</span>
+                <span class="year-bill-amount">$1,200</span>
+              </li>
+              <li class="year-bill">
+                <span class="year-bill-month">Jul</span>
+                <span class="year-bill-name">Health renewal</span>
+                <span class="year-bill-amount">$540</span>
+              </li>
+              <li class="year-bill">
+                <span class="year-bill-month">Nov</span>
+                <span class="year-bill-name">Domain renewal</span>
+                <span class="year-bill-amount">$12</span>
+              </li>
+            </ul>
+
+            <div class="year-split" aria-label="Yearly total divided into a monthly stash">
+              <div class="year-split-row">
+                <span class="year-split-label">Year total</span>
+                <span class="year-split-amount">$2,532</span>
+              </div>
+              <div class="year-split-op" aria-hidden="true">
+                <span class="year-split-chip">&divide; 12 months</span>
+              </div>
+              <div class="year-split-result">
+                <span class="year-split-label">Stash each month</span>
+                <span class="year-split-hero" data-monthly-stash data-value="211">$0</span>
+                <span class="year-split-foot">and every renewal pays itself</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="year-note">
+            Divide the year's total by twelve. Set that much aside each month &mdash; when the renewal lands, the money's already waiting for it.
+          </p>
+
+          <a class="cta" href="https://forgettie.dumbnote.app" aria-label="Open the Forgettie app">
+            <span>Open the app</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <nav class="site-footer-nav" aria-label="Site">
+          <a href="https://forgettie.dumbnote.app">Open the app</a>
+          <span aria-hidden="true">&middot;</span>
+          <a href="/features/">All features</a>
+          <span aria-hidden="true">&middot;</span>
+          <a href="/vs/">Compare alternatives</a>
+        </nav>
+        <p>Forgettie — a local-first tool for recurring payments. No account. No server. Your list lives on your device.</p>
+        <p>
+          One of a few small tools built at <a href="https://dumbnote.app">dumbnote.app</a>.
+        </p>
+      </footer>
+    </div>
+
+    <script src="scripts/about.js" defer></script>
+  </body>
+</html>

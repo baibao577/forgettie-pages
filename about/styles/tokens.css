@@ -1,0 +1,138 @@
+:root {
+  /* Primitives — rarely referenced directly */
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #f7f7f8;
+  --color-neutral-100: #ececee;
+  --color-neutral-200: #d9dadf;
+  --color-neutral-300: #bcbec5;
+  --color-neutral-400: #8e909a;
+  --color-neutral-500: #6c6e79;
+  --color-neutral-600: #52545d;
+  --color-neutral-700: #3b3d44;
+  --color-neutral-800: #26272c;
+  --color-neutral-900: #16171a;
+  --color-neutral-950: #0b0b0c;
+
+  --color-red-500: #dc2626;
+  --color-red-600: #b91c1c;
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-green-500: #16a34a;
+  --color-pink-300: #f9a8d4;
+  --color-pink-500: #ec4899;
+  --color-pink-600: #db2777;
+  --color-emerald-300: #6ee7b7;
+  --color-emerald-400: #34d399;
+  --color-emerald-500: #10b981;
+
+  /* Indigo — UI primary accent. */
+  --color-indigo-300: #a5b4fc;
+  --color-indigo-400: #818cf8;
+  --color-indigo-500: #6366f1;
+  --color-indigo-600: #4f46e5;
+  --color-indigo-700: #4338ca;
+
+  /* Aliases kept for any legacy reads; prefer --color-indigo-* going forward. */
+  --color-accent-500: var(--color-indigo-500);
+  --color-accent-600: var(--color-indigo-600);
+
+  /* Fonts */
+  --font-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono:
+    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
+    'Liberation Mono', monospace;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 28px;
+  --radius-pill: 999px;
+
+  /* Breakpoints (referenced in @media queries) */
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+
+  /* Touch */
+  --tap-min: 44px;
+
+  /* Interactive controls (search, chip, icon-button, etc.) —
+     keep these in sync so every pill-style control shares the same
+     height and corner radius. */
+  --control-height: var(--tap-min);
+  --control-radius: var(--radius-pill);
+
+  /* Shadows (neutral — overridden per theme if needed) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.18);
+
+  /* Levitation — two-layer diffuse shadows for floating cards. The short
+     shadow grounds the element; the long one is the ambient cast. */
+  --shadow-levitate-sm:
+    0 2px 4px rgba(15, 23, 42, 0.04),
+    0 4px 12px rgba(15, 23, 42, 0.05);
+  --shadow-levitate-md:
+    0 4px 10px rgba(15, 23, 42, 0.05),
+    0 12px 32px rgba(15, 23, 42, 0.08);
+  --shadow-levitate-lg:
+    0 10px 20px rgba(15, 23, 42, 0.06),
+    0 24px 60px rgba(15, 23, 42, 0.1);
+
+  /* Glass — frosted surfaces used by the hero card, payment rows,
+     and overlays. Lowering opacity lets more ambient colour through;
+     stronger blur + saturate amplifies the frosted read. */
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --glass-blur: blur(28px) saturate(1.4);
+
+  /* Semantic tokens — default (light) */
+  --bg-app: var(--color-neutral-50);
+  --bg-surface: var(--color-neutral-0);
+  --bg-raised: var(--color-neutral-0);
+  --bg-sunken: var(--color-neutral-100);
+  --bg-hover: var(--color-neutral-100);
+  --border-default: var(--color-neutral-200);
+  --border-strong: var(--color-neutral-300);
+  --fg-default: var(--color-neutral-900);
+  --fg-muted: var(--color-neutral-500);
+  --fg-subtle: var(--color-neutral-400);
+  --fg-inverse: var(--color-neutral-0);
+  --accent: var(--color-indigo-600);
+  --accent-fg: var(--color-neutral-0);
+  --accent-soft: color-mix(in srgb, var(--color-indigo-500) 12%, transparent);
+  --accent-ring: color-mix(in srgb, var(--color-indigo-500) 18%, transparent);
+
+  --status-overdue-bg: color-mix(in srgb, var(--color-pink-500) 14%, transparent);
+  --status-overdue-fg: var(--color-pink-600);
+  --status-soon-bg: color-mix(in srgb, var(--color-pink-500) 6%, transparent);
+  --status-soon-fg: var(--color-pink-500);
+  /* "Saving" — semantic for cancellation savings chips, row highlights,
+     per-cycle Saved deduction row. Pink keeps its emotional read. */
+  --status-saving-bg: color-mix(in srgb, var(--color-pink-500) 10%, transparent);
+  --status-saving-fg: var(--color-pink-600);
+
+  --font-size-xs: 12px;
+  --font-size-sm: 13px;
+  --font-size-md: 15px;
+  --font-size-lg: 17px;
+  --font-size-xl: 22px;
+  --font-size-2xl: 28px;
+}

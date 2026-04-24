@@ -9,7 +9,7 @@
     <title>Forgettie features — offline subscription tracker, calendar export, no account</title>
     <meta
       name="description"
-      content="Every feature of Forgettie, the offline subscription tracker. Yearly totals, quiet reminders, calendar export, no account, no bank login."
+      content="Every feature of Forgettie, the offline subscription tracker. Yearly totals, price-change tracking, pause and resume, quiet reminders, calendar export, no account, no bank login."
     />
     <link rel="canonical" href="https://forgettie.dumbnote.app/features/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -53,6 +53,8 @@
         "featureList": [
           "Yearly total across every subscription",
           "Cash flow forecast for next month",
+          "Track price changes with effective dates",
+          "Pause and resume subscriptions without breaking totals",
           "Quiet in-app reminders before renewals",
           "Calendar export (.ics) to Google, Apple, Outlook",
           "Tag and group by category",
@@ -106,6 +108,27 @@
             <div class="feature-body">
               <h2>Forecast next month's bills before they land</h2>
               <p>See what's due when, so you can plan your cash flow, move money around, or cancel before the next charge arrives &mdash; not after.</p>
+            </div>
+          </article>
+
+          <article class="feature">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+            </span>
+            <div class="feature-body">
+              <h2>Track price changes over time</h2>
+              <p>Your streaming sub went from $9.99 to $14.99 in July? Log the change and the date. Past billings keep the old amount, new billings use the new one &mdash; your year-to-date total stays accurate instead of silently jumping.</p>
+              <span class="feature-example">$9.99 Jan&ndash;Jun &rarr; $14.99 Jul&ndash;Dec &equiv; $149.88/yr</span>
+            </div>
+          </article>
+
+          <article class="feature">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+            </span>
+            <div class="feature-body">
+              <h2>Pause and resume without losing the math</h2>
+              <p>Cancel in February, resume in April, cancel again in June, resume in August &mdash; every gap is remembered. Only the months you actually paid count toward your total. Works for any number of stop-resume cycles.</p>
             </div>
           </article>
 

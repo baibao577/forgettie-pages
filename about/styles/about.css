@@ -47,6 +47,7 @@ body::before {
     );
   filter: blur(70px) saturate(1.15);
   will-change: transform;
+  transform: translateZ(0);
 }
 
 button {
@@ -202,6 +203,7 @@ a:hover { text-decoration: underline; }
     animation-delay: 3.5s;
     pointer-events: none;
     z-index: 0;
+    will-change: transform;
   }
 }
 
@@ -311,10 +313,25 @@ a:hover { text-decoration: underline; }
 }
 
 .progress-fill {
+  /* The outer fill only animates `width`. The infinite sheen lives on
+     `.progress-fill-sheen` as a transform animation so it runs entirely
+     on the GPU compositor. */
+  position: relative;
   display: block;
   height: 100%;
   width: 0;
   border-radius: var(--radius-pill);
+  overflow: hidden;
+  background: var(--color-indigo-500);
+  transition: width 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 0 10px var(--accent-ring);
+}
+
+.progress-fill-sheen {
+  position: absolute;
+  inset: 0;
+  width: 200%;
+  border-radius: inherit;
   background: linear-gradient(
     90deg,
     var(--color-indigo-500) 0%,
@@ -322,15 +339,15 @@ a:hover { text-decoration: underline; }
     var(--color-indigo-500) 60%,
     var(--color-indigo-600) 100%
   );
-  background-size: 200% 100%;
+  background-size: 50% 100%;
+  background-repeat: repeat-x;
   animation: progress-flow 4.5s linear infinite;
-  transition: width 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
-  box-shadow: 0 0 10px var(--accent-ring);
+  will-change: transform;
 }
 
 @keyframes progress-flow {
-  0% { background-position: 100% 0; }
-  100% { background-position: -100% 0; }
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
 
 .hero-foot {
@@ -1099,7 +1116,7 @@ a:hover { text-decoration: underline; }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-card::after { display: none; animation: none; }
-  .progress-fill { animation: none; }
+  .progress-fill-sheen { animation: none; }
   .row {
     opacity: 1;
     transform: none;
@@ -1107,4 +1124,16 @@ a:hover { text-decoration: underline; }
   }
   .replay { opacity: 0.55; pointer-events: auto; transition: none; }
   .year-card { opacity: 1; transform: none; transition: none; }
+}
+
+/* Skip rendering (style, layout, paint, infinite animations) for long
+   offscreen sections. When scrolled into view, each section renders at
+   full fidelity; when scrolled away, Chrome pauses its `card-sheen` /
+   `progress-flow` animations and skips its subtree. Pixel output is
+   identical once a section is on screen. */
+.hero-card,
+.saving-panel,
+.year-card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
 }

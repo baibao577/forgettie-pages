@@ -636,3 +636,11 @@
   width: 100%;
   transform: translateY(20px);
 }
+
+/* Skip rendering offscreen cards. Each .card carries backdrop-filter plus a
+   large pseudo-element gradient — paused while offscreen, full fidelity when
+   in view. */
+.card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 540px;
+}

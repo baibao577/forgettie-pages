@@ -40,6 +40,7 @@ body::before {
     );
   filter: blur(70px) saturate(1.15);
   will-change: transform;
+  transform: translateZ(0);
 }
 
 a { color: var(--accent); text-decoration: none; }
@@ -500,4 +501,12 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .card-title { font-size: clamp(20px, 5.2vw, 26px); }
   .bento-cell { padding: var(--space-4); }
   .bento-savings-amount { font-size: clamp(26px, 7vw, 36px); }
+}
+
+/* Skip rendering offscreen feature blocks. `.card` already has this via
+   marketing.css; add the features-only large sections here. */
+.hero-bento,
+.card-full {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 420px;
 }

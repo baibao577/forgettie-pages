@@ -39,6 +39,7 @@ body::before {
     );
   filter: blur(70px) saturate(1.15);
   will-change: transform;
+  transform: translateZ(0);
 }
 
 a { color: var(--accent); text-decoration: none; }
@@ -309,4 +310,11 @@ button { font: inherit; color: inherit; cursor: pointer; }
 @media (max-width: 480px) {
   .page { padding-left: var(--space-3); padding-right: var(--space-3); }
   .compare-block { padding: var(--space-4); }
+}
+
+/* Skip rendering offscreen comparison blocks to keep scroll cheap. */
+.compare-block,
+.who {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 280px;
 }

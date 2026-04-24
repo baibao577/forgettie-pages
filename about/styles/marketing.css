@@ -54,6 +54,10 @@
   flex-direction: column;
   padding: 46px 10px 14px;
   gap: 7px;
+  /* Defensive: the parent card may be .card-full which sets text-align:center;
+     a phone-screen is always a "window into the app" and must stay left-aligned
+     regardless of how the outer card aligns its copy. */
+  text-align: left;
 }
 
 /* Ambient gradient inside the screen */
@@ -644,3 +648,4 @@
   content-visibility: auto;
   contain-intrinsic-size: auto 540px;
 }
+

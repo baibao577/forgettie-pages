@@ -27,18 +27,8 @@ body::before {
   inset: -15%;
   z-index: -1;
   pointer-events: none;
-  background:
-    radial-gradient(
-      circle at 20% 15%,
-      color-mix(in srgb, var(--color-indigo-400) 45%, transparent) 0%,
-      transparent 45%
-    ),
-    radial-gradient(
-      circle at 85% 90%,
-      color-mix(in srgb, var(--color-emerald-400) 40%, transparent) 0%,
-      transparent 45%
-    );
-  filter: blur(70px) saturate(1.15);
+  /* Pre-baked by forgettie/scripts/bake-mesh.mjs. */
+  background: url('/bg-mesh.webp') center / 100% 100% no-repeat;
   will-change: transform;
   transform: translateZ(0);
 }

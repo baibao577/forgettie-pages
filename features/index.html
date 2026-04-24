@@ -13,6 +13,9 @@
     />
     <link rel="canonical" href="https://forgettie.dumbnote.app/features/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://forgettie.dumbnote.app/features/" />
@@ -61,7 +64,8 @@
           "Works offline as a PWA",
           "Private by design, no account",
           "Dark mode, system-aware",
-          "Free, no paid tier"
+          "Free, no paid tier",
+          "Savings tracker on cancelled subscriptions"
         ]
       }
     </script>
@@ -70,135 +74,418 @@
     <div class="page">
       <header class="site-header">
         <a class="brand" href="/" aria-label="Forgettie home">
-          <img src="/favicon.svg" alt="" width="22" height="22" />
-          <span>Forgettie</span>
+          <img src="/icon-192.png" alt="" width="22" height="22" />
+          <span>forgettie</span>
         </a>
         <nav class="nav" aria-label="Sections">
           <a href="/about/">Story</a>
           <a href="/features/" aria-current="page">Features</a>
           <a href="/vs/">Compare</a>
         </nav>
+        <button
+          type="button"
+          class="theme-toggle"
+          data-theme-toggle
+          aria-label="Toggle dark mode"
+          title="Toggle dark mode"
+        >
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+        </button>
       </header>
 
       <main>
         <section class="hero" aria-labelledby="features-heading">
           <p class="eyebrow">What Forgettie does</p>
-          <h1 id="features-heading" class="h1">Everything Forgettie does &mdash; in one page.</h1>
+          <h1 id="features-heading" class="h1">Everything you need to see what subscriptions really cost.</h1>
           <p class="hero-lead">
-            Forgettie is an offline subscription tracker for people who want to see the real cost of their recurring bills &mdash; without handing over bank credentials or signing up for yet another account. Here's exactly what it does.
+            Simple, offline tools that help you track renewals, forecast cash flow, and cancel what isn't worth it &mdash; without an account, a bank login, or a cloud service.
           </p>
         </section>
 
-        <section class="features" aria-label="Feature list">
-          <article class="feature">
-            <span class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h9"/><path d="M16 3v4M8 3v4M3 11h18"/></svg>
+        <!-- Hero widget-wall: bento of real UI fragments, no phone -->
+        <section class="hero-bento" aria-label="A glance at Forgettie">
+          <div class="bento-cell bento-totals">
+            <div class="bento-cell-head">
+              <p class="bento-cell-eyebrow">Your year, at a glance</p>
+            </div>
+            <div class="ui-totals">
+              <p class="ui-totals-eyebrow">Yearly total</p>
+              <p class="ui-totals-value">$5,401.44</p>
+              <div class="ui-progress"><span class="ui-progress-fill" style="width:68%"></span></div>
+              <div class="ui-totals-foot">
+                <span>About</span>
+                <span class="ui-totals-monthly">$450.12</span>
+                <span>a month</span>
+              </div>
+            </div>
+            <div class="ui-rows" aria-hidden="true">
+              <div class="ui-row">
+                <span class="ui-row-icon" style="background: color-mix(in srgb, var(--color-red-500) 16%, transparent); color: var(--color-red-500);">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3h3l6 18h-3L6 3zm6 0h3v18h-3V3zm6 0h3v18h-3V3z"/></svg>
+                </span>
+                <div class="ui-row-main">
+                  <span class="ui-row-title">Netflix <span class="ui-badge">monthly</span></span>
+                  <span class="ui-row-meta">$191.88 / yr</span>
+                </div>
+                <span class="ui-row-price"><span class="ui-row-amount">$15.99</span><span class="ui-row-cycle">/mo</span></span>
+              </div>
+              <div class="ui-row">
+                <span class="ui-row-icon" style="background: color-mix(in srgb, var(--color-indigo-500) 16%, transparent); color: var(--color-indigo-500);">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h18v4H3zM3 9h11v12H3zm13 0h5v12h-5z"/></svg>
+                </span>
+                <div class="ui-row-main">
+                  <span class="ui-row-title">Adobe CC <span class="ui-badge">monthly</span></span>
+                  <span class="ui-row-meta">$251.88 / yr</span>
+                </div>
+                <span class="ui-row-price"><span class="ui-row-amount">$20.99</span><span class="ui-row-cycle">/mo</span></span>
+              </div>
+              <div class="ui-row yearly">
+                <span class="ui-row-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+                </span>
+                <div class="ui-row-main">
+                  <span class="ui-row-title">Domain <span class="ui-badge">yearly</span></span>
+                  <span class="ui-row-meta">Renews Nov 14</span>
+                </div>
+                <span class="ui-row-price"><span class="ui-row-amount">$12.00</span><span class="ui-row-cycle">/yr</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-cell bento-duesoon">
+            <div class="bento-cell-head">
+              <p class="bento-cell-eyebrow">Due soon</p>
+              <span class="ui-status-pill">2 this week</span>
+            </div>
+            <div class="ui-rows">
+              <div class="ui-row ui-row-soon">
+                <span class="ui-row-icon" style="background: color-mix(in srgb, var(--color-red-500) 16%, transparent); color: var(--color-red-500);">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3h3l6 18h-3L6 3zm6 0h3v18h-3V3zm6 0h3v18h-3V3z"/></svg>
+                </span>
+                <div class="ui-row-main">
+                  <span class="ui-row-title">Netflix <span class="ui-status-pill">Soon</span></span>
+                  <span class="ui-row-meta">Due in 2 days</span>
+                </div>
+                <span class="ui-row-price"><span class="ui-row-amount">$15.99</span><span class="ui-row-cycle">/mo</span></span>
+              </div>
+              <div class="ui-row ui-row-soon">
+                <span class="ui-row-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19a5 5 0 0 0 0-10 7 7 0 0 0-13.5 2A4 4 0 0 0 5 19h12.5z"/></svg>
+                </span>
+                <div class="ui-row-main">
+                  <span class="ui-row-title">iCloud+ <span class="ui-status-pill">Soon</span></span>
+                  <span class="ui-row-meta">Due in 5 days</span>
+                </div>
+                <span class="ui-row-price"><span class="ui-row-amount">$2.99</span><span class="ui-row-cycle">/mo</span></span>
+              </div>
+            </div>
+            <span class="ui-ics-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <span>Add to calendar &middot; .ics</span>
             </span>
-            <div class="feature-body">
-              <h2>See the yearly total of every subscription</h2>
-              <p>Annualized cost view &mdash; monthly, yearly, one-off all normalized into what it really costs you per year. The $9.99 quietly becomes $120 and the decision gets easier.</p>
-              <span class="feature-example">$15.99/mo &rarr; $191.88/yr</span>
+          </div>
+
+          <div class="bento-cell bento-savings">
+            <div class="bento-cell-head">
+              <p class="bento-cell-eyebrow">Back in your pocket</p>
+            </div>
+            <p class="bento-savings-amount">+ $104.95</p>
+            <div class="bento-savings-strike">
+              <span class="strike">Adobe CC &middot; monthly</span>
+              <span class="strike strike-amount">$20.99 / mo</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2-up feature card grid (resubs-style: title + desc above, phone below) -->
+        <section class="card-grid" aria-label="Feature tour">
+
+          <!-- Card 1: Totals -->
+          <article class="card">
+            <div class="card-copy">
+              <p class="card-eyebrow">Totals</p>
+              <h2 class="card-title">See what they really cost</h2>
+              <p class="card-lead">Monthly, yearly, quarterly &mdash; normalized into what you'll actually spend this year. The $9.99 quietly becomes $120.</p>
+            </div>
+            <div class="card-preview" aria-hidden="true">
+              <div class="phone">
+                <span class="phone-notch"></span>
+                <div class="phone-screen">
+                  <div class="ui-statusbar">
+                    <span>9:41</span>
+                    <span class="ui-statusbar-icons">
+                      <svg viewBox="0 0 16 10" fill="currentColor" aria-hidden="true"><path d="M1 8h2v1H1zM4 6h2v3H4zM7 4h2v5H7zM10 2h2v7h-2zM13 0h2v9h-2z"/></svg>
+                      <svg viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M1 5C3 3 5 2 7 2s4 1 6 3"/><path d="M3 7c1-1 2-2 4-2s3 1 4 2"/><circle cx="7" cy="9" r="0.8" fill="currentColor"/></svg>
+                      <svg viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="0.5" y="1.5" width="18" height="7" rx="1.5"/><rect x="2" y="3" width="12" height="4" fill="currentColor"/><rect x="20" y="3.5" width="1.5" height="3" fill="currentColor"/></svg>
+                    </span>
+                  </div>
+                  <div class="ui-app-header">
+                    <span class="ui-app-title">Subscriptions</span>
+                    <span class="ui-app-add">+</span>
+                  </div>
+                  <div class="ui-totals">
+                    <p class="ui-totals-eyebrow">Your yearly total</p>
+                    <p class="ui-totals-value">$5,401.44</p>
+                    <div class="ui-progress"><span class="ui-progress-fill" style="width:68%"></span></div>
+                    <div class="ui-totals-foot">
+                      <span>About</span>
+                      <span class="ui-totals-monthly">$450.12</span>
+                      <span>a month</span>
+                    </div>
+                  </div>
+                  <div class="ui-rows">
+                    <div class="ui-row">
+                      <span class="ui-row-icon" style="background: color-mix(in srgb, var(--color-red-500) 16%, transparent); color: var(--color-red-500);">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3h3l6 18h-3L6 3zm6 0h3v18h-3V3zm6 0h3v18h-3V3z"/></svg>
+                      </span>
+                      <div class="ui-row-main"><span class="ui-row-title">Netflix <span class="ui-badge">monthly</span></span><span class="ui-row-meta">$191.88/yr</span></div>
+                      <span class="ui-row-price"><span class="ui-row-amount">$15.99</span><span class="ui-row-cycle">/mo</span></span>
+                    </div>
+                    <div class="ui-row yearly">
+                      <span class="ui-row-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+                      </span>
+                      <div class="ui-row-main"><span class="ui-row-title">Domain <span class="ui-badge">yearly</span></span><span class="ui-row-meta">Renews Nov 14</span></div>
+                      <span class="ui-row-price"><span class="ui-row-amount">$12.00</span><span class="ui-row-cycle">/yr</span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </article>
 
-          <article class="feature">
-            <span class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 6-6"/></svg>
-            </span>
-            <div class="feature-body">
-              <h2>Forecast next month's bills before they land</h2>
-              <p>See what's due when, so you can plan your cash flow, move money around, or cancel before the next charge arrives &mdash; not after.</p>
+          <!-- Card 2: One list -->
+          <article class="card">
+            <div class="card-copy">
+              <p class="card-eyebrow">One list</p>
+              <h2 class="card-title">Everything in one place</h2>
+              <p class="card-lead">Every recurring payment in one normalized list &mdash; sortable, searchable, filterable by tag. Add a new one in seconds.</p>
+            </div>
+            <div class="card-preview" aria-hidden="true">
+              <div class="phone">
+                <span class="phone-notch"></span>
+                <div class="phone-screen">
+                  <div class="ui-statusbar">
+                    <span>9:41</span>
+                    <span class="ui-statusbar-icons">
+                      <svg viewBox="0 0 16 10" fill="currentColor" aria-hidden="true"><path d="M1 8h2v1H1zM4 6h2v3H4zM7 4h2v5H7zM10 2h2v7h-2zM13 0h2v9h-2z"/></svg>
+                      <svg viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M1 5C3 3 5 2 7 2s4 1 6 3"/><path d="M3 7c1-1 2-2 4-2s3 1 4 2"/><circle cx="7" cy="9" r="0.8" fill="currentColor"/></svg>
+                      <svg viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="0.5" y="1.5" width="18" height="7" rx="1.5"/><rect x="2" y="3" width="12" height="4" fill="currentColor"/><rect x="20" y="3.5" width="1.5" height="3" fill="currentColor"/></svg>
+                    </span>
+                  </div>
+                  <div class="ui-app-header">
+                    <span class="ui-app-title">Subscriptions</span>
+                    <span class="ui-app-add">+</span>
+                  </div>
+                  <div class="ui-chip-row">
+                    <span class="ui-chip is-active">All</span>
+                    <span class="ui-chip">Monthly</span>
+                    <span class="ui-chip">Yearly</span>
+                  </div>
+                  <div class="ui-rows ui-rows-dense">
+                    <div class="ui-row">
+                      <span class="ui-row-icon" style="background: color-mix(in srgb, var(--color-red-500) 16%, transparent); color: var(--color-red-500);">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3h3l6 18h-3L6 3zm6 0h3v18h-3V3zm6 0h3v18h-3V3z"/></svg>
+                      </span>
+                      <div class="ui-row-main"><span class="ui-row-title">Netflix</span><span class="ui-row-meta">Streaming</span></div>
+                      <span class="ui-row-price"><span class="ui-row-amount">$15.99</span><span class="ui-row-cycle">/mo</span></span>
+                    </div>
+                    <div class="ui-row">
+                      <span class="ui-row-icon" style="background: color-mix(in srgb, var(--color-emerald-500) 16%, transparent); color: var(--color-emerald-500);">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5-2 4-2 4 2 4 2M8 10s1.5-2 4-2 4 2 4 2" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+                      </span>
+                      <div class="ui-row-main"><span class="ui-row-title">Spotify</span><span class="ui-row-meta">Streaming</span></div>
+                      <span class="ui-row-price"><span class="ui-row-amount">$10.99</span><span class="ui-row-cycle">/mo</span></span>
+                    </div>
+                    <div class="ui-row">
+                      <span class="ui-row-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19a5 5 0 0 0 0-10 7 7 0 0 0-13.5 2A4 4 0 0 0 5 19h12.5z"/></svg>
+                      </span>
+                      <div class="ui-row-main"><span class="ui-row-title">iCloud+</span><span class="ui-row-meta">Cloud storage</span></div>
+                      <span class="ui-row-price"><span class="ui-row-amount">$2.99</span><span class="ui-row-cycle">/mo</span></span>
+                    </div>
+                    <div class="ui-row">
+                      <span class="ui-row-icon" style="background: color-mix(in srgb, var(--color-amber-400) 22%, transparent); color: var(--color-amber-500);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+                      </span>
+                      <div class="ui-row-main"><span class="ui-row-title">NYT</span><span class="ui-row-meta">News</span></div>
+                      <span class="ui-row-price"><span class="ui-row-amount">$17.00</span><span class="ui-row-cycle">/mo</span></span>
+                    </div>
+                    <div class="ui-row yearly">
+                      <span class="ui-row-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+                      </span>
+                      <div class="ui-row-main"><span class="ui-row-title">Domain <span class="ui-badge">yearly</span></span><span class="ui-row-meta">Renews Nov 14</span></div>
+                      <span class="ui-row-price"><span class="ui-row-amount">$12.00</span><span class="ui-row-cycle">/yr</span></span>
+                    </div>
+                    <div class="ui-row">
+                      <span class="ui-row-icon" style="background: color-mix(in srgb, var(--color-pink-500) 16%, transparent); color: var(--color-pink-500);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5a6 6 0 0 1 11 0c0 5-5.5 8.5-5.5 8.5S6.5 11.5 6.5 6.5z"/><circle cx="12" cy="6.5" r="2"/></svg>
+                      </span>
+                      <div class="ui-row-main"><span class="ui-row-title">Gym</span><span class="ui-row-meta">Fitness</span></div>
+                      <span class="ui-row-price"><span class="ui-row-amount">$39.00</span><span class="ui-row-cycle">/mo</span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </article>
 
-          <article class="feature">
-            <span class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
-            </span>
-            <div class="feature-body">
-              <h2>Track price changes over time</h2>
-              <p>Your streaming sub went from $9.99 to $14.99 in July? Log the change and the date. Past billings keep the old amount, new billings use the new one &mdash; your year-to-date total stays accurate instead of silently jumping.</p>
-              <span class="feature-example">$9.99 Jan&ndash;Jun &rarr; $14.99 Jul&ndash;Dec &equiv; $149.88/yr</span>
+          <!-- Card 3: Reminders -->
+          <article class="card">
+            <div class="card-copy">
+              <p class="card-eyebrow">Reminders</p>
+              <h2 class="card-title">Know before you're charged</h2>
+              <p class="card-lead">Forgettie surfaces what's due soon the moment you open it &mdash; and exports any renewal to your calendar with one tap.</p>
+            </div>
+            <div class="card-preview" aria-hidden="true">
+              <div class="phone">
+                <span class="phone-notch"></span>
+                <div class="phone-screen">
+                  <div class="ui-statusbar">
+                    <span>9:41</span>
+                    <span class="ui-statusbar-icons">
+                      <svg viewBox="0 0 16 10" fill="currentColor" aria-hidden="true"><path d="M1 8h2v1H1zM4 6h2v3H4zM7 4h2v5H7zM10 2h2v7h-2zM13 0h2v9h-2z"/></svg>
+                      <svg viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M1 5C3 3 5 2 7 2s4 1 6 3"/><path d="M3 7c1-1 2-2 4-2s3 1 4 2"/><circle cx="7" cy="9" r="0.8" fill="currentColor"/></svg>
+                      <svg viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="0.5" y="1.5" width="18" height="7" rx="1.5"/><rect x="2" y="3" width="12" height="4" fill="currentColor"/><rect x="20" y="3.5" width="1.5" height="3" fill="currentColor"/></svg>
+                    </span>
+                  </div>
+                  <div class="ui-app-header"><span class="ui-app-title">Subscriptions</span><span class="ui-app-add">+</span></div>
+                  <div class="ui-section-head"><span>Due soon</span><span class="ui-section-count">2</span></div>
+                  <div class="ui-rows">
+                    <div class="ui-row ui-row-soon">
+                      <span class="ui-row-icon" style="background: color-mix(in srgb, var(--color-red-500) 16%, transparent); color: var(--color-red-500);">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3h3l6 18h-3L6 3zm6 0h3v18h-3V3zm6 0h3v18h-3V3z"/></svg>
+                      </span>
+                      <div class="ui-row-main"><span class="ui-row-title">Netflix <span class="ui-status-pill">Soon</span></span><span class="ui-row-meta">Due in 2 days</span></div>
+                      <span class="ui-row-price"><span class="ui-row-amount">$15.99</span><span class="ui-row-cycle">/mo</span></span>
+                    </div>
+                    <div class="ui-row ui-row-soon">
+                      <span class="ui-row-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19a5 5 0 0 0 0-10 7 7 0 0 0-13.5 2A4 4 0 0 0 5 19h12.5z"/></svg>
+                      </span>
+                      <div class="ui-row-main"><span class="ui-row-title">iCloud+ <span class="ui-status-pill">Soon</span></span><span class="ui-row-meta">Due in 5 days</span></div>
+                      <span class="ui-row-price"><span class="ui-row-amount">$2.99</span><span class="ui-row-cycle">/mo</span></span>
+                    </div>
+                  </div>
+                  <div class="ui-section-head" style="margin-top:6px;"><span>Later this month</span></div>
+                  <div class="ui-rows">
+                    <div class="ui-row">
+                      <span class="ui-row-icon" style="background: color-mix(in srgb, var(--color-emerald-500) 16%, transparent); color: var(--color-emerald-500);">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5-2 4-2 4 2 4 2M8 10s1.5-2 4-2 4 2 4 2" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+                      </span>
+                      <div class="ui-row-main"><span class="ui-row-title">Spotify</span><span class="ui-row-meta">Due in 14 days</span></div>
+                      <span class="ui-row-price"><span class="ui-row-amount">$10.99</span><span class="ui-row-cycle">/mo</span></span>
+                    </div>
+                  </div>
+                  <span class="ui-ics-chip">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    <span>Add to calendar &middot; .ics</span>
+                  </span>
+                </div>
+              </div>
             </div>
           </article>
 
-          <article class="feature">
-            <span class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-            </span>
-            <div class="feature-body">
-              <h2>Pause and resume without losing the math</h2>
-              <p>Cancel in February, resume in April, cancel again in June, resume in August &mdash; every gap is remembered. Only the months you actually paid count toward your total. Works for any number of stop-resume cycles.</p>
+          <!-- Card 4: Organize -->
+          <article class="card">
+            <div class="card-copy">
+              <p class="card-eyebrow">Organize</p>
+              <h2 class="card-title">Tag, group, pause, resume</h2>
+              <p class="card-lead">Group by tag to see category totals. Pause without breaking your math. Cancel and watch savings add up &mdash; month by month.</p>
+            </div>
+            <div class="card-preview" aria-hidden="true">
+              <div class="phone">
+                <span class="phone-notch"></span>
+                <div class="phone-screen">
+                  <div class="ui-statusbar">
+                    <span>9:41</span>
+                    <span class="ui-statusbar-icons">
+                      <svg viewBox="0 0 16 10" fill="currentColor" aria-hidden="true"><path d="M1 8h2v1H1zM4 6h2v3H4zM7 4h2v5H7zM10 2h2v7h-2zM13 0h2v9h-2z"/></svg>
+                      <svg viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M1 5C3 3 5 2 7 2s4 1 6 3"/><path d="M3 7c1-1 2-2 4-2s3 1 4 2"/><circle cx="7" cy="9" r="0.8" fill="currentColor"/></svg>
+                      <svg viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="0.5" y="1.5" width="18" height="7" rx="1.5"/><rect x="2" y="3" width="12" height="4" fill="currentColor"/><rect x="20" y="3.5" width="1.5" height="3" fill="currentColor"/></svg>
+                    </span>
+                  </div>
+                  <div class="ui-app-header"><span class="ui-app-title">By tag</span><span class="ui-app-add">+</span></div>
+                  <div class="ui-section-head"><span>Streaming</span><span class="ui-section-total">$43.97/mo</span></div>
+                  <div class="ui-rows ui-rows-dense">
+                    <div class="ui-row">
+                      <span class="ui-row-icon" style="background: color-mix(in srgb, var(--color-red-500) 16%, transparent); color: var(--color-red-500);">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3h3l6 18h-3L6 3zm6 0h3v18h-3V3zm6 0h3v18h-3V3z"/></svg>
+                      </span>
+                      <div class="ui-row-main"><span class="ui-row-title">Netflix</span></div>
+                      <span class="ui-row-price"><span class="ui-row-amount">$15.99</span><span class="ui-row-cycle">/mo</span></span>
+                    </div>
+                    <div class="ui-row">
+                      <span class="ui-row-icon" style="background: color-mix(in srgb, var(--color-emerald-500) 16%, transparent); color: var(--color-emerald-500);">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5-2 4-2 4 2 4 2M8 10s1.5-2 4-2 4 2 4 2" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+                      </span>
+                      <div class="ui-row-main"><span class="ui-row-title">Spotify</span></div>
+                      <span class="ui-row-price"><span class="ui-row-amount">$10.99</span><span class="ui-row-cycle">/mo</span></span>
+                    </div>
+                    <div class="ui-row ui-row-paused">
+                      <span class="ui-row-icon" style="background: color-mix(in srgb, var(--color-indigo-500) 16%, transparent); color: var(--color-indigo-500);">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h18v4H3zM3 9h11v12H3zm13 0h5v12h-5z"/></svg>
+                      </span>
+                      <div class="ui-row-main">
+                        <span class="ui-row-title">Adobe CC <span class="ui-status-pill ui-status-pill-paused">Paused</span></span>
+                        <span class="ui-row-meta ui-row-saved">+ $104.95 saved</span>
+                      </div>
+                      <span class="ui-row-price ui-row-price-strike"><span class="ui-row-amount">$20.99</span><span class="ui-row-cycle">/mo</span></span>
+                    </div>
+                  </div>
+                  <div class="ui-section-head" style="margin-top:8px;"><span>Utilities</span><span class="ui-section-total">$2.99/mo</span></div>
+                  <div class="ui-rows ui-rows-dense">
+                    <div class="ui-row">
+                      <span class="ui-row-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19a5 5 0 0 0 0-10 7 7 0 0 0-13.5 2A4 4 0 0 0 5 19h12.5z"/></svg>
+                      </span>
+                      <div class="ui-row-main"><span class="ui-row-title">iCloud+</span></div>
+                      <span class="ui-row-price"><span class="ui-row-amount">$2.99</span><span class="ui-row-cycle">/mo</span></span>
+                    </div>
+                    <div class="ui-row yearly">
+                      <span class="ui-row-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+                      </span>
+                      <div class="ui-row-main"><span class="ui-row-title">Domain <span class="ui-badge">yearly</span></span></div>
+                      <span class="ui-row-price"><span class="ui-row-amount">$12.00</span><span class="ui-row-cycle">/yr</span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </article>
 
-          <article class="feature">
-            <span class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-            </span>
-            <div class="feature-body">
-              <h2>Quiet reminders before every renewal</h2>
-              <p>Surface what's due soon right when you open the app. No email spam, no push nagging until you actually ask for it.</p>
-            </div>
-          </article>
-
-          <article class="feature">
-            <span class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            </span>
-            <div class="feature-body">
-              <h2>Export any due date to your calendar</h2>
-              <p>One-tap .ics export &mdash; the reminder lives in Google, Apple, or Outlook Calendar where you already look. No extra notification system to manage.</p>
-            </div>
-          </article>
-
-          <article class="feature">
-            <span class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-            </span>
-            <div class="feature-body">
-              <h2>Tag and group by category</h2>
-              <p>Tag each item (Streaming, Insurance, Domains&hellip;) and group by tag to see category totals. Filter is <em>any</em>, not <em>all</em>, so broad searches stay fast.</p>
-            </div>
-          </article>
-
-          <article class="feature">
-            <span class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-            </span>
-            <div class="feature-body">
-              <h2>Works offline as a PWA</h2>
-              <p>Install to your home screen on iOS, Android, or desktop. Opens in its own window and works without a connection. Your list never depends on a server.</p>
-            </div>
-          </article>
-
-          <article class="feature feature-privacy">
-            <span class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </span>
-            <div class="feature-body">
-              <h2>Private by design</h2>
-              <p>No account. No sign-up. No bank login. Your list lives on your device. Nothing syncs to a server unless you choose to back it up yourself.</p>
-            </div>
-          </article>
-
-          <article class="feature">
-            <span class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-            </span>
-            <div class="feature-body">
-              <h2>Dark mode, from day one</h2>
-              <p>Follows your system, with a hand-tuned dark theme that respects OLED. Manual toggle too, if you prefer.</p>
-            </div>
-          </article>
-
-          <article class="feature">
-            <span class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            </span>
-            <div class="feature-body">
-              <h2>Free, forever</h2>
-              <p>Zero cost. One-time install. No subscription for the subscription tracker &mdash; that would defeat the point.</p>
+          <!-- Card 5: Privacy — full-width emerald band -->
+          <article class="card card-full">
+            <div class="card-copy">
+              <p class="card-eyebrow">Privacy</p>
+              <h2 class="card-title">Private by design. No account. No server.</h2>
+              <p class="card-lead">Your list lives on your device in an installable PWA that works offline. Export your data anytime &mdash; it never leaves unless you send it.</p>
+              <div class="card-pills">
+                <span class="card-pill">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                  No account needed
+                </span>
+                <span class="card-pill">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                  Works offline
+                </span>
+                <span class="card-pill">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                  Dark mode, OLED-tuned
+                </span>
+                <span class="card-pill">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                  Free, forever
+                </span>
+              </div>
             </div>
           </article>
         </section>
@@ -209,6 +496,62 @@
             <span>Open the app</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
+        </section>
+
+        <!-- Full feature reference — text-heavy for SEO and quick scanning -->
+        <section class="seo-features" aria-labelledby="all-features-heading">
+          <h2 id="all-features-heading" class="seo-features-title">Every feature of Forgettie</h2>
+          <p class="seo-features-lead">The complete reference &mdash; each one in a line or two.</p>
+          <dl class="seo-features-list">
+            <div class="seo-feature">
+              <dt>Yearly total across every subscription</dt>
+              <dd>Annualized cost view. Monthly, yearly, quarterly and one-off billings all normalized into a single per-year number, so the $9.99 quietly becomes $120 and the decision gets easier.</dd>
+            </div>
+            <div class="seo-feature">
+              <dt>Cash-flow forecast for the coming month</dt>
+              <dd>See what's due when, so you can plan your cash flow, move money around, or cancel before the next charge arrives &mdash; not after it's already hit.</dd>
+            </div>
+            <div class="seo-feature">
+              <dt>Price change tracking with effective dates</dt>
+              <dd>Your streaming sub went from $9.99 to $14.99 in July? Log the change and the date. Past billings keep the old amount, new billings use the new one, and your year-to-date total stays accurate instead of silently jumping.</dd>
+            </div>
+            <div class="seo-feature">
+              <dt>Pause and resume without losing the math</dt>
+              <dd>Cancel in February, resume in April, cancel again in June, resume in August &mdash; every gap is remembered. Only the months you actually paid count toward your total. Works for any number of stop-resume cycles.</dd>
+            </div>
+            <div class="seo-feature">
+              <dt>Quiet reminders before every renewal</dt>
+              <dd>Surface what's due soon right when you open the app. No email spam, no push nagging until you actually ask for it. Configurable lead time so reminders arrive when you want them.</dd>
+            </div>
+            <div class="seo-feature">
+              <dt>Calendar export (.ics) to Google, Apple, Outlook</dt>
+              <dd>One-tap .ics export &mdash; the reminder lives in the calendar you already look at. No extra notification system to manage, no separate inbox.</dd>
+            </div>
+            <div class="seo-feature">
+              <dt>Tag and group by category</dt>
+              <dd>Tag each item (Streaming, Insurance, Domains&hellip;) and group by tag to see category totals at a glance. Filter is <em>any</em>, not <em>all</em>, so broad searches stay fast.</dd>
+            </div>
+            <div class="seo-feature">
+              <dt>Works offline as a PWA</dt>
+              <dd>Install to your home screen on iOS, Android, or desktop. Opens in its own window and keeps working without a connection. Your list never depends on a server being up.</dd>
+            </div>
+            <div class="seo-feature">
+              <dt>Private by design &mdash; no account, no bank login</dt>
+              <dd>No account. No sign-up. No bank integration. Your list lives on your device in an IndexedDB store. Nothing syncs to a server unless you choose to back it up yourself.</dd>
+            </div>
+            <div class="seo-feature">
+              <dt>Dark mode, from day one</dt>
+              <dd>Follows your system preference, with a hand-tuned dark theme that respects OLED displays. Manual toggle available too, if you prefer to override.</dd>
+            </div>
+            <div class="seo-feature">
+              <dt>Free, forever</dt>
+              <dd>Zero cost. One-time install. No subscription for the subscription tracker &mdash; that would defeat the point.</dd>
+            </div>
+            <div class="seo-feature">
+              <dt>Savings tracker on cancelled items</dt>
+              <dd>When you cancel a subscription, Forgettie keeps counting what you would have spent and shows it as money back in your pocket. Every cancel makes the number tangible.</dd>
+            </div>
+          </dl>
         </section>
       </main>
 
@@ -225,5 +568,6 @@
         </p>
       </footer>
     </div>
+    <script src="/about/scripts/theme-toggle.js" defer></script>
   </body>
 </html>

@@ -1,5 +1,6 @@
 @import url('../../about/styles/tokens.css');
 @import url('../../about/styles/themes.css');
+@import url('../../about/styles/chrome.css');
 
 *,
 *::before,
@@ -53,34 +54,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
     max(var(--space-4), env(safe-area-inset-left));
 }
 
-.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3);
-  padding-bottom: var(--space-6);
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-weight: 700;
-  font-size: var(--font-size-md);
-  color: var(--fg-default);
-  letter-spacing: -0.01em;
-}
-.brand img { width: 22px; height: 22px; display: block; }
-
-.nav {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-  font-size: var(--font-size-sm);
-}
-.nav a { color: var(--fg-muted); font-weight: 500; }
-.nav a:hover { color: var(--fg-default); text-decoration: none; }
-.nav a[aria-current='page'] { color: var(--fg-default); }
+/* Header (brand, nav, theme toggle) now lives in chrome.css — shared. */
 
 /* ---- Hero ---- */
 
@@ -334,6 +308,5 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 @media (max-width: 480px) {
   .page { padding-left: var(--space-3); padding-right: var(--space-3); }
-  .nav { gap: var(--space-3); font-size: var(--font-size-xs); }
   .compare-block { padding: var(--space-4); }
 }

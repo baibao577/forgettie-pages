@@ -1,31 +1,8 @@
 (function () {
   'use strict';
 
-  // ---- Theme toggle (mirrors app: system-aware with manual override) ----
-  var storageKey = 'forgettie-theme';
-  var root = document.documentElement;
-
-  function applyStoredTheme() {
-    try {
-      var stored = localStorage.getItem(storageKey);
-      if (stored === 'dark' || stored === 'light') {
-        root.setAttribute('data-theme', stored);
-      }
-    } catch (e) { /* storage unavailable — fall back to system */ }
-  }
-  applyStoredTheme();
-
-  var toggle = document.querySelector('[data-theme-toggle]');
-  if (toggle) {
-    toggle.addEventListener('click', function () {
-      var current = root.getAttribute('data-theme');
-      var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      var effective = current || (systemDark ? 'dark' : 'light');
-      var next = effective === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      try { localStorage.setItem(storageKey, next); } catch (e) {}
-    });
-  }
+  // Theme toggle is handled by the shared theme-toggle.js (loaded before this
+  // script). Everything below is animation logic specific to /about.
 
   // ---- Reveal animation ----
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

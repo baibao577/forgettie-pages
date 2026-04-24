@@ -1,5 +1,7 @@
 @import url('./tokens.css');
 @import url('./themes.css');
+@import url('./chrome.css');
+@import url('./marketing.css');
 
 *,
 *::before,
@@ -68,47 +70,7 @@ a:hover { text-decoration: underline; }
     max(var(--space-4), env(safe-area-inset-left));
 }
 
-/* ---- Site header row ---- */
-
-.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3);
-  padding-bottom: var(--space-6);
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-weight: 700;
-  font-size: var(--font-size-md);
-  color: var(--fg-default);
-  letter-spacing: -0.01em;
-}
-.brand img { width: 22px; height: 22px; display: block; }
-
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--border-default);
-  background: var(--bg-surface);
-  color: var(--fg-muted);
-  transition: color 120ms ease, background 120ms ease, border-color 120ms ease;
-}
-.theme-toggle:hover {
-  color: var(--fg-default);
-  border-color: var(--border-strong);
-}
-.theme-toggle svg { width: 16px; height: 16px; }
-.theme-toggle .icon-sun { display: none; }
-[data-theme='dark'] .theme-toggle .icon-sun { display: inline; }
-[data-theme='dark'] .theme-toggle .icon-moon { display: none; }
+/* Header (brand, nav, theme toggle) now lives in chrome.css — shared. */
 
 /* ---- Typography hierarchy (marketing scale) ---- */
 
@@ -1003,6 +965,83 @@ a:hover { text-decoration: underline; }
   margin: 0;
   text-wrap: balance;
 }
+
+/* ---- "See how it works" strip (bridge to /features/) ---- */
+
+.strip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(var(--space-8), 7vw, 64px);
+  padding-top: clamp(var(--space-10), 10vw, 96px);
+  padding-bottom: clamp(var(--space-10), 10vw, 96px);
+  border-top: 1px solid var(--border-default);
+  text-align: center;
+}
+
+.strip-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 620px;
+}
+
+.strip-head .subhead a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.strip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 960px;
+}
+
+@media (max-width: 900px) {
+  .strip-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+  }
+}
+
+/* Shrink .card specifics when used inside .strip-grid (smaller than features-page version) */
+.strip-grid .card {
+  min-height: 440px;
+  padding: var(--space-5) var(--space-4) 0;
+}
+.strip-grid .card-title {
+  font-size: clamp(18px, 2.6vw, 22px);
+}
+.strip-grid .card-lead {
+  font-size: clamp(13px, 1.8vw, 15px);
+}
+.strip-grid .phone {
+  max-width: 210px;
+}
+
+.strip-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  color: var(--fg-default);
+  font-weight: 600;
+  font-size: var(--font-size-md);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+.strip-link:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-levitate-sm);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.strip-link svg { width: 16px; height: 16px; }
 
 /* ---- Footer ---- */
 

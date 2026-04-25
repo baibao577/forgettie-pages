@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="forgettie_teaser.jpg" alt="Forgettie — offline tracker for recurring payments" />
+  <img src="forgettie_promo_002.png" alt="Forgettie — offline tracker for recurring payments" />
 </p>
 
 # Forgettie

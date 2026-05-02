@@ -22,8 +22,8 @@
   flex-shrink: 0;
 }
 .brand img {
-  width: 22px;
-  height: 22px;
+  width: 28px;
+  height: 28px;
   display: block;
   /* Shape-aware levitation — drop-shadow respects the logo's alpha instead
      of casting a square like box-shadow would. Two layers: a short grounding

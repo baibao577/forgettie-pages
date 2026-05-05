@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/web-D_bUrnYF.js","assets/index-Dg7kXiyR.js","assets/index-CDT21pPl.css"])))=>i.map(i=>d[i]);
+import{it as e,tt as t}from"./index-Dg7kXiyR.js";var n=e(`Device`,{web:()=>t(()=>import(`./web-D_bUrnYF.js`).then(e=>new e.DeviceWeb),__vite__mapDeps([0,1,2]))});export{n as Device};
